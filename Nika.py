@@ -175,6 +175,41 @@ def create_avg_temperature_chart(df, output_path='outputs/avg_temperature_per_ci
     return output_path
 
 
+### Pipeline Function to run all pipelin in one go
+
+def pipeline(file_path='wather_data.csv'):
+    """
+    Runs the full weather data processing pipeline:
+    1. Loads the raw CSV file.
+    2. Cleans and transforms the data.
+    3. Saves the cleaned dataset as a CSV file.
+    4. Generates a text report of top 5 hottest cities.
+    5. Creates a bar chart of average temperature per city.
+
+    Parameters:
+        file_path (str): Path to the raw weather CSV file. Default is 'wather_data.csv'.
+
+    Returns:
+        None
+    """
+    print("Loading raw dataset")
+    df = load_dataset(file_path)
+
+    print("Cleaning and transforming data")
+    cleaned_df = clean_weather_data(df)
+
+    print("Saving cleaned data and generating report")
+    save_data_and_generate_report(cleaned_df)
+
+    print("Creating temperature bar chart")
+    create_avg_temperature_chart(cleaned_df)
+
+    print("Pipeline execution complete!")
+
+
+# Run the pipeline only if this file is executed directly
+if __name__ == '__main__':
+    pipeline()
 
 
 
