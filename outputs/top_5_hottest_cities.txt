@@ -1,0 +1,5 @@
+Top 5 Cities with Highest Average Temperature (°C):
+
+London: 10.34°C
+New York: 8.75°C
+Tokyo: 6.34°C
